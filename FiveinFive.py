@@ -16,8 +16,8 @@ with open("words.txt") as word_file:
 word_to_guess = random.choice(word_bank)
 
 #game variables
-misplaced_guesses = []
-wrong_guesses = []
+misplaced_letters = []
+wrong_letters = []
 max_turns = 5
 turns_taken = 0
 
@@ -40,21 +40,21 @@ while turns_taken < max_turns:
         for c in guess:
             if c == word_to_guess[index]:
                 print(c, end=" ")
-                if c in misplaced_guesses:
-                    misplaced_guesses.remove(c)
+                if c in misplaced_letters:
+                    misplaced_letters.remove(c)
             elif c in word_to_guess:
-                if c not in misplaced_guesses:
-                        misplaced_guesses.append(c)
+                if c not in misplaced_letters:
+                        misplaced_letters.append(c)
                 print("_", end=" ")
             else:
-                if c not in wrong_guesses:
-                        wrong_guesses.append(c)
+                if c not in wrong_letters:
+                        wrong_letters.append(c)
                 print("_", end=" ")
             index += 1
 
     print("\n")
-    print(f"Misplaced letters: {misplaced_guesses}")
-    print(f"Wrong letters: {wrong_guesses}")
+    print(f"Misplaced letters: {misplaced_letters}")
+    print(f"Wrong letters: {wrong_letters}")
     turns_taken += 1
 
 #Check if winning word
