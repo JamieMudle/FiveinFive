@@ -1,5 +1,8 @@
 import random #import random for later
 
+def quit_program():
+    raise SystemExit
+
 #Title of game
 Title = "Five In Five"
 
@@ -46,6 +49,8 @@ while turns_taken < max_turns:
                 if c not in misplaced_letters:
                         misplaced_letters.append(c)
                 print("_", end=" ")
+            elif "exitn" in guess:
+                 quit_program()
             else:
                 if c not in wrong_letters:
                         wrong_letters.append(c)
